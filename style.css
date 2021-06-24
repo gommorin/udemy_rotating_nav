@@ -25,6 +25,10 @@ body {
   transform: rotate(-20deg);
 }
 
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
 .circle-container {
   position: fixed;
   top: -100px;
@@ -66,6 +70,72 @@ body {
   transform-origin: top left;
 }
 
+/* Esto ayudará a que se muestre el menú de nav
+cuando la clase show-nav se active */
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: white;
+  margin: 40px 0;
+  transform: translateX(-100%); 
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* El + li hace que el los li siguientes se modifiquen.
+En este caso, aquí queremos que se coloque en diagonal
+con respecto al primer li. */
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%); 
+}
+
+/* Al igual que el anterior, queremos que el li consecuente
+se coloque en esa diagonal respecto a los 2 li anteriores. */
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%); 
+}
+
 .content img {
   max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
